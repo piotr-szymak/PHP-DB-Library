@@ -46,9 +46,9 @@ require 'deleteBook.php';
         "SELECT ksiazki.Tytul, ksiazki.Jezyk, ksiazki.ID_Ksiazka, GROUP_CONCAT(kategorie.ID_Kategoria ORDER BY kategorie.ID_Kategoria $sortOrder SEPARATOR ', ') AS ID_Kategoria
         FROM ksiazki 
         INNER JOIN kategorie_ksiazek
-        ON ksiazki.ID_Ksiazka = kategorie_ksiazek.ID_Ksiazka
+                ON ksiazki.ID_Ksiazka = kategorie_ksiazek.ID_Ksiazka
         INNER JOIN kategorie 
-        ON kategorie_ksiazek.ID_Kategoria = kategorie.U_ID
+                ON kategorie_ksiazek.ID_Kategoria = kategorie.U_ID
         GROUP BY ksiazki.ID_Ksiazka
         ORDER BY $column $sortOrder";
         
